@@ -1,0 +1,29 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+SHOW_PERSON_OUTLINE()
+
+
+title Container Diagram for api person
+
+
+Person(user, "User" , " user")
+
+System_Boundary(Leandro, "Leandro "){
+
+    System_Boundary(productSystem,Workspace account){
+    Container(api_person, "api-person", "Rest", "java app")
+    ContainerDb(db_person, "database", "mysql", "data", $sprite="mysql")
+
+
+ }
+
+
+
+Rel_R( user, api_person, "data access")
+Rel_R( api_person, db_person, "data access")
+
+
+
+@enduml
