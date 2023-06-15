@@ -1,5 +1,20 @@
 # api-person
 
+## JPA Attribute Encryption
+
+This project includes a demonstration of using JPA (Java Persistence API) with attribute encryption. The goal is to encrypt a specific field before saving it in the database and decrypt it when reading it through the application.
+
+In the example provided in this demo, the `motherName` field is encrypted and stored in the database. The encryption is achieved by using the `@Convert` annotation with the `AttributeEncryptor` class, which handles the encryption and decryption logic.
+
+Here's an example of how the encryption is applied to the `motherName` field:
+
+```java
+@Column
+@Convert(converter = AttributeEncryptor.class)
+private String motherName;
+```
+
+
 
 #### Context Diagram - Api person
 
